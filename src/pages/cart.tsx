@@ -18,7 +18,7 @@ export default function CartPage() {
 
     return (
         <Layout title="Your Cart" backgroundImage='/images/all-peripherals.jpg'>
-            <div className="container mx-auto p-4 text-white bg-black bg-opacity-70 rounded-lg shadow-lg">
+            <div className="min-h-screen w-full h-full flex flex-col items-center text-white text-center p-8 bg-black bg-opacity-50">
                 <h1 className="text-3xl font-bold mb-4">Your Cart</h1>
                 {items.length === 0 ? (
                     <p>Your cart is empty.</p>

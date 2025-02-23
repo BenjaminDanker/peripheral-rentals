@@ -20,7 +20,6 @@ export default function Layout({ title, children, backgroundImage }: LayoutProps
 
             <Navbar />
 
-            {/* Apply background image here */}
             <main
                 className="flex-grow w-full text-white bg-black "
                 style={{

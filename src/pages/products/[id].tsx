@@ -48,29 +48,43 @@ export default function ProductDetail({ product }: ProductDetailProps) {
     if (!product) {
         return (
             <Layout title="Product Not Found">
-                <p>Product not found.</p>
+                <div className="min-h-screen flex items-center justify-center text-white">
+                    <p className="text-xl bg-black bg-opacity-70 px-6 py-4 rounded-lg shadow-lg">
+                        Product not found.
+                    </p>
+                </div>
             </Layout>
         )
     }
 
     return (
-        <Layout title={product.name}>
-            <div className="flex flex-col md:flex-row gap-4">
-                <div className="relative w-full md:w-1/2 h-96">
-                    <Image
-                        src={product.image}
-                        alt={product.name}
-                        fill
-                        className="object-cover"
-                    />
-                </div>
-                <div>
-                    <h2 className="text-2xl font-bold ">{product.name}</h2>
-                    <p className="mt-2">{product.description}</p>
-                    <p className="mt-2 font-semibold">${product.price} / day</p>
-                    <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                        Rent Now
-                    </button>
+        <Layout title={product.name} backgroundImage={product.image}>
+            <div className="min-h-screen flex items-center justify-center p-6">
+                <div className="bg-black bg-opacity-70 p-6 rounded-lg shadow-lg text-white w-full max-w-4xl">
+                    <div className="flex flex-col md:flex-row gap-6">
+                        
+                        {/* Image Section */}
+                        <div className="relative w-full md:w-1/2 h-96">
+                            <Image
+                                src={product.image}
+                                alt={product.name}
+                                layout="fill"
+                                objectFit="cover"
+                                className="rounded-lg shadow-lg"
+                            />
+                        </div>
+
+                        {/* Product Details */}
+                        <div className="md:w-1/2">
+                            <h2 className="text-3xl font-bold drop-shadow-lg">{product.name}</h2>
+                            <p className="mt-2 text-lg drop-shadow">{product.description}</p>
+                            <p className="mt-2 text-xl font-semibold drop-shadow-lg">${product.price} / day</p>
+
+                            <button className="mt-4 bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 shadow-md">
+                                Rent Now
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </Layout>
