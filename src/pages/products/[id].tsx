@@ -65,10 +65,10 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
     return (
         <Layout title={product.name} backgroundImage='/images/all-peripherals.jpg'>
-            <div className="min-h-screen flex items-center justify-center p-6">
+            <div className="min-h-screen w-full h-full flex flex-col items-center text-white text-center p-8 bg-black bg-opacity-50">
                 <div className="bg-black bg-opacity-70 p-6 rounded-lg shadow-lg text-white w-full max-w-4xl">
                     <div className="flex flex-col md:flex-row gap-6">
-                        
+
                         {/* Image Section */}
                         <div className="relative w-full md:w-1/2 h-96">
                             <Image
