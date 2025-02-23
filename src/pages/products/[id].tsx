@@ -65,7 +65,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                     />
                 </div>
                 <div>
-                    <h2 className="text-2xl font-bold">{product.name}</h2>
+                    <h2 className="text-2xl font-bold ">{product.name}</h2>
                     <p className="mt-2">{product.description}</p>
                     <p className="mt-2 font-semibold">${product.price} / day</p>
                     <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">

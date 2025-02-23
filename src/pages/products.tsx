@@ -24,12 +24,14 @@ interface ProductsPageProps {
 
 export default function ProductsPage({ products }: ProductsPageProps) {
     return (
-        <Layout title="Products">
-            <h2 className="text-2xl font-bold mb-4">Available Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                {products.map((product) => (
-                    <ProductCard key={product.id} product={product} />
-                ))}
+        <Layout title="Products" backgroundImage="/images/all-peripherals.jpg">
+            <div className="mx-auto p-8 bg-black bg-opacity-70 rounded-lg shadow-lg">
+                <h2 className="text-2xl font-bold mb-4">Available Products</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    {products.map((product) => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
             </div>
         </Layout>
     );

@@ -1,17 +1,26 @@
-// src/pages/index.tsx
-import Layout from '../components/Layout';
-import Link from 'next/link';
+import Layout from "../components/Layout";
+import ScrollFade from "../components/ScrollFade";
+
+// Define section structure
+interface Section {
+  id: string;
+  title: string;
+  bgImage: string;
+}
+
+// Sections list (no hero section)
+const SECTIONS: Section[] = [
+  { id: 'hero', title: 'All Peripherals', bgImage: '/images/all-peripherals.jpg' },
+  { id: "mice", title: "Mice", bgImage: "/images/mice.jpg" },
+  { id: "keyboards", title: "Keyboards", bgImage: "/images/keyboards.jpg" },
+  { id: "headsets", title: "Headsets", bgImage: "/images/headsets.jpg" },
+  { id: "mousepads", title: "Mousepads", bgImage: "/images/mousepads.jpg" },
+];
 
 export default function Home() {
-    return (
-        <Layout title="Home">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold mb-4">Welcome to Our Store!</h1>
-                <p className="mb-8">Discover amazing products and exclusive deals.</p>
-                <Link href="/products" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
-                    Browse Products
-                </Link>
-            </div>
-        </Layout>
-    );
+  return (
+    <Layout title="Home">
+      <ScrollFade sections={SECTIONS} />
+    </Layout>
+  );
 }
