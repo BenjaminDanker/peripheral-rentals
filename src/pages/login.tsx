@@ -1,20 +1,30 @@
 import Layout from '../components/Layout';
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function LoginPage() {
     const { data: session, status } = useSession();
+    const router = useRouter();
     const loading = status === "loading";
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Trigger signIn with credentials
-        await signIn("credentials", { email, password });
+        setError(""); // Clear previous errors
+
+        const result = await signIn("credentials", { email, password, redirect: false });
+
+        if (result?.error) {
+            setError("Invalid email or password. Ensure your email is verified.");
+        } else {
+            router.push("/");
+        }
     };
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <p className="text-white text-center mt-6">Checking authentication...</p>;
 
     return (
         <Layout title="Login" backgroundImage='/images/all-peripherals.jpg'>
@@ -35,6 +45,8 @@ export default function LoginPage() {
                         </>
                     ) : (
                         <form onSubmit={handleSubmit} className="mx-auto p-8 bg-black bg-opacity-70 rounded-lg shadow-lg">
+                            {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+
                             <div className="mb-4">
                                 <label className="block text-white">Email:</label>
                                 <input

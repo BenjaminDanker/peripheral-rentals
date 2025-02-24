@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import Navbar from './Navbar';
+import Link from 'next/link';
 
 interface LayoutProps {
     title?: string;
@@ -32,8 +33,13 @@ export default function Layout({ title, children, backgroundImage }: LayoutProps
                 {children}
             </main>
 
-            <footer className="p-4 bg-gray-800 text-center text-white">
-                &copy; {new Date().getFullYear()} Rental Service
+            <footer className="p-4 bg-gray-800 text-center text-gray-300">
+                <p>
+                    &copy; {new Date().getFullYear()} Rental Service &nbsp;|&nbsp;
+                    <Link href="/admin" className="text-blue-400 hover:underline">
+                        Admin Panel
+                    </Link>
+                </p>
             </footer>
         </div>
     );
