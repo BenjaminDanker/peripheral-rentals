@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { supabase } from "../../../lib/supbaseClient";
-import AdminNavbar from "../../../components/AdminNavbar";
 import AdminLayout from "@/components/AdminLayout";
 
 
