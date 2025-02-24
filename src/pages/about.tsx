@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 
 export default function About() {
     return (
-        <Layout backgroundImage='/images/about.jpg' title="About Us">
+        <Layout backgroundImage='/images/mousepads.jpg' title="About Us">
             <div className="min-h-screen w-full h-full flex flex-col items-center justify-center text-white text-center p-8 bg-black bg-opacity-50">
             <h1 className="text-4xl font-bold mb-4">About Us</h1>
                 <p className="mb-4">

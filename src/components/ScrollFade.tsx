@@ -35,7 +35,7 @@ export default function ScrollFade({ sections }: { sections: Section[] }) {
           rawOpacity = useTransform(
             scrollYProgress,
             [start, end - 0.1, end],
-            [0, 1, 0]
+            [1, 1, 0]
           );
         }
 
