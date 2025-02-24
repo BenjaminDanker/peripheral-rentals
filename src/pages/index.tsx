@@ -10,7 +10,7 @@ interface Section {
 
 // Sections list (no hero section)
 const SECTIONS: Section[] = [
-  { id: 'hero', title: 'All Peripherals', bgImage: '/images/all-peripherals.jpg' },
+  { id: 'all', title: 'All Peripherals', bgImage: '/images/all-peripherals.jpg' },
   { id: "mice", title: "Mice", bgImage: "/images/mice.jpg" },
   { id: "keyboards", title: "Keyboards", bgImage: "/images/keyboards.jpg" },
   { id: "headsets", title: "Headsets", bgImage: "/images/headsets.jpg" },
