@@ -7,9 +7,16 @@ interface ProductImageProps {
     alt: string
     width: number
     height: number
+    className?: string
 }
 
-export default function ProductImage({ src, alt, width, height }: ProductImageProps) {
+export default function ProductImage({
+    src,
+    alt,
+    width,
+    height,
+    className = '',
+}: ProductImageProps) {
     // The fallback image in case the given `src` is invalid or fails to load
     const FALLBACK_SRC = '/images/mice.jpg'
 
@@ -47,17 +54,13 @@ export default function ProductImage({ src, alt, width, height }: ProductImagePr
                 alt={alt}
                 width={width}
                 height={height}
-                // If using Next.js older than 13, you can still do:
-                // onLoadingComplete={() => handleLoadComplete()}
                 onLoadingComplete={handleLoadComplete}
-                // Attempt to catch image load failures
                 onError={handleError}
-                // Avoid Next.js optimization for local fallback images
                 unoptimized={imageSrc === FALLBACK_SRC}
                 placeholder="blur"
                 blurDataURL="/images/placeholder.png"
                 className={`rounded object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'
-                    }`}
+                    } ${className}`}
             />
         </div>
     )
