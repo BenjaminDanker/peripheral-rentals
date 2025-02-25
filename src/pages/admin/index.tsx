@@ -42,15 +42,15 @@ const AdminPage = () => {
 
     const deleteProduct = async (id: string) => {
         console.log(`Delete button clicked for product ID: ${id}`);
-    
+
         // ✅ Ensure ID is passed correctly
         const response = await fetch(`/api/products/${encodeURIComponent(id)}`, {
             method: "DELETE",
         });
-    
+
         const result = await response.json();
         console.log("Delete API response:", result);
-    
+
         if (response.ok) {
             setProducts((prevProducts) => prevProducts.filter((product) => product.id !== id));
             setFilteredProducts((prevFiltered) => prevFiltered.filter((product) => product.id !== id));
@@ -63,10 +63,15 @@ const AdminPage = () => {
 
     return (
         <AdminLayout>
-            <h1 className="text-3xl font-bold text-gray-200 text-center mb-6">Manage Products</h1>
+            <div className="flex flex-col items-center mb-6">
+                <h1 className="text-3xl font-bold text-gray-200 text-center mb-4">Manage Products</h1>
+                <Link
+                    href="/admin/add"
+                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 mb-4"
+                >
+                    Add Product
+                </Link>
 
-            {/* Search Bar */}
-            <div className="mb-6 flex justify-center">
                 <input
                     type="text"
                     placeholder="Search products..."

@@ -20,7 +20,7 @@ declare module "next-auth" {
 }
 
 export default NextAuth({
-  debug: true, // Enable debugging to log errors and flow
+  debug: false, // Enable debugging to log errors and flow
   providers: [
     CredentialsProvider({
       name: "Credentials",
